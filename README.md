@@ -1,43 +1,32 @@
-1.1 Definição da Tela de Cadastro como Tela Principal
-Para definir a tela de cadastro como a tela principal, foi realizado o seguinte commit: 
-Commit #1: Definir tela de cadastro como principal. 
-usando: $ git add .
-$ git commit -m "Definir tela de cadastro como tela principal"
-$ git push origin master
+Passo 1: Criar uma Nova Ramificação "melhorias"
+No terminal ou prompt de comando, navegue até o diretório do seu projeto Git e execute os seguintes comandos: 
+git branch melhorias  # Cria uma nova ramificação chamada "melhorias"
+git checkout melhorias  # Muda para a ramificação "melhorias"
 
+Passo 2: Implementar as Funcionalidades
+Operação de venderProduto() em ProdutosDAO:
+Dentro da classe ProdutosDAO, implemente o método venderProduto() para atualizar o status de um produto para "Vendido". Você precisará usar uma instrução SQL para atualizar o status no banco de dados.
 
-1.2 Implementação da Funcionalidade de Salvar
-Foi implementada a funcionalidade de salvar os itens no banco de dados. Após testes, correções foram feitas quando necessário.
+Operação de listarProdutosVendidos() em ProdutosDAO:
+Implemente o método listarProdutosVendidos() em ProdutosDAO para buscar produtos com status "Vendido" no banco de dados e retornar uma lista de produtos vendidos.
 
-Commit #2: Implementar funcionalidade de salvar no banco de dados.
-usando: $ git add .
-$ git commit -m "Implementar funcionalidade de salvar no banco de dados"
-$ git push origin master
+Implementar Tela de Vendas (VendasView):
+Crie uma nova classe VendasView para exibir os produtos vendidos. Esta classe deve interagir com ProdutosDAO para obter a lista de produtos vendidos e exibi-los na interface gráfica.
 
+Implementar Funcionalidade de Venda na Tela de Listagem:
+Na tela de listagem existente (provavelmente na classe listagemVIEW), atualize o botão "Vender" para chamar o método venderProduto() de ProdutosDAO quando um produto for vendido.
 
-1.3 Exibição de Mensagens de Sucesso ou Erro
-Mensagens de sucesso ou erro agora são exibidas após o cadastro, proporcionando uma melhor experiência ao usuário.
-Commit #3: Adicionar mensagens de sucesso/erro após o cadastro.
-usando: $ git add .
-$ git commit -m "Adicionar mensagens de sucesso/erro após o cadastro"
-$ git push origin master
+Implementar Navegação para Tela de Vendas:
+No botão "Consultar Vendas" da tela de listagem, implemente um evento para abrir a tela de VendasView.
 
+Passo 3: Realizar Commits e Pushes
+No terminal ou prompt de comando, dentro do diretório do seu projeto Git, adicione, faça commits e envie as alterações para o repositório remoto:
+git add .  # Adiciona todas as alterações para o commit
+git commit -m "Implementadas funcionalidades: venderProduto, listarProdutosVendidos, tela de Vendas"
+git push origin melhorias  # Envia os commits para a ramificação "melhorias" no repositório remoto
 
-1.4 Implementação da Lista de Itens Cadastrados
-A funcionalidade de listar itens cadastrados foi implementada, permitindo aos usuários visualizar todos os itens no banco de dados.
-Commit #4: Implementar funcionalidade de listar itens cadastrados.
-usando: $ git add .
-$ git commit -m "Implementar funcionalidade de listar itens cadastrados"
-$ git push origin master
+Passo 4: Mesclar a Ramificação "melhorias" com a Ramificação Principal:
+git checkout main  # Muda de volta para a ramificação principal
+git merge melhorias  # Mescla as alterações da ramificação "melhorias" na ramificação principal
+git push origin main  # Envia os commits mesclados para o repositório remoto na ramificação principal
 
-
-Parte 2: Correção de Bugs
-Durante o processo de implementação, alguns bugs foram encontrados e corrigidos.
-Commit #5: Correção de bug na funcionalidade de listagem.
-usando: $ git add .
-$ git commit -m "Correção de bug na funcionalidade de listagem"
-$ git push origin master
-
-
-Conclusão
-Neste projeto, foram implementadas as funcionalidades solicitadas, proporcionando uma experiência de usuário aprimorada.
